@@ -66,6 +66,9 @@ const HeaderLink = styled(Link)`
 export default withRouter(({ history }) => {
   const search = useInput("");
   const { data } = useQuery(ME);
+
+  console.log(`Header.js | data : ${JSON.stringify(data, null, 2)}`);
+
   const onSearchSubmit = e => {
     e.preventDefault();
     history.push(`/search?term=${search.value}`);
@@ -99,7 +102,7 @@ export default withRouter(({ history }) => {
               <User />
             </HeaderLink>
           ) : (
-            <HeaderLink to={data.me.name}>
+            <HeaderLink to={data.me.id}>
               <User />
             </HeaderLink>
           )}

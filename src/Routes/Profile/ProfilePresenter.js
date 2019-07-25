@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Helmet } from "rl-react-helmet";
+import { Link } from "react-router-dom";
 import Loader from "../../Components/Loader";
 import Avatar from "../../Components/Avatar";
 import FatText from "../../Components/FatText";
@@ -114,6 +115,11 @@ export default ({ loading, data, logOut }) => {
             </Counts>
             <FullName text={fullName} />
             <Bio>{bio}</Bio>
+            {isSelf && (
+              <Link to={"/edit/" + id}>
+                <Button text="프로필 편집" />
+              </Link>
+            )}
           </HeaderColumn>
         </Header>
         <Posts>
